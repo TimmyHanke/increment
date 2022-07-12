@@ -10,12 +10,20 @@ class Products extends Component {
       { id: 4, quantity: 9 },
     ],
   };
-  handleIncrement = () => {
-    this.setState({ quantity: this.state.quantity + 1 });
+  handleIncrement = (product) => {
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
+    products[index] = { ...product };
+    products[index].quantity++;
+    this.setState({ products });
   };
 
-  handleDecrement = () => {
-    this.setState({ quantity: this.state.quantity - 1 });
+  handleDecrement = (product) => {
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
+    products[index] = { ...product };
+    products[index].quantity--;
+    this.setState({ products });
   };
   handleDelete = (id) => {
     const products = this.state.products.filter((p) => p.id !== id);
@@ -43,6 +51,7 @@ class Products extends Component {
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
+            onProduct={product}
           />
         ))}
       </>

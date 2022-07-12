@@ -5,42 +5,41 @@ class Product extends Component {
     const quantity = this.props.onQuantity;
     return quantity === 0 ? "Zero" : quantity;
   }
-
-  render() {
+  getBadgeClasses() {
     let classes = "badge me-2 ";
     classes +=
       this.props.onQuantity === 0 ? "bg-warning text-dark" : "bg-primary";
+    return classes;
+  }
+
+  render() {
     return (
       <div className="m-2">
-        <span className={classes}>{this.formatQuantity()}</span>
+        <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
+
+        <span className="m-2">
+          <button
+            className="btn btn-secondary"
+            onClick={() => this.props.onIncrement(this.props.onProduct)}
+          >
+            +
+          </button>
+        </span>
         <span>
-          <span className="m-2">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              onClick={() => this.props.onIncrement(this.props.product)}
-            >
-              +
-            </button>
-          </span>
-          <span>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              onClick={() => this.props.onDecrement(this.props.product)}
-            >
-              -
-            </button>
-          </span>
-          <span className="m-2">
-            <button
-              type="button"
-              class="btn btn-danger"
-              onClick={() => this.props.onDelete(this.props.id)}
-            >
-              X
-            </button>
-          </span>
+          <button
+            className="btn btn-secondary"
+            onClick={() => this.props.onDecrement(this.props.onProduct)}
+          >
+            -
+          </button>
+        </span>
+        <span className="m-2">
+          <button
+            className="btn btn-danger"
+            onClick={() => this.props.onDelete(this.props.id)}
+          >
+            X
+          </button>
         </span>
       </div>
     );
