@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/increment/static/css/main.c25aa6b5.css",
+    "main.js": "/increment/static/js/main.188f46a1.js",
+    "index.html": "/increment/index.html",
+    "main.c25aa6b5.css.map": "/increment/static/css/main.c25aa6b5.css.map",
+    "main.188f46a1.js.map": "/increment/static/js/main.188f46a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c25aa6b5.css",
+    "static/js/main.188f46a1.js"
+  ]
+}
