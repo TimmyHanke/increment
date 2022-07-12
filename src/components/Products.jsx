@@ -10,13 +10,39 @@ class Products extends Component {
       { id: 4, quantity: 9 },
     ],
   };
+  handleIncrement = () => {
+    this.setState({ quantity: this.state.quantity + 1 });
+  };
+
+  handleDecrement = () => {
+    this.setState({ quantity: this.state.quantity - 1 });
+  };
+  handleDelete = (id) => {
+    const products = this.state.products.filter((p) => p.id !== id);
+    this.setState({ products });
+  };
+  handleReset = () => {
+    const products = this.state.products.map((product) => ({
+      ...product,
+      quantity: 0,
+    }));
+    this.setState({ products });
+  };
+
   render() {
     return (
       <>
+        <button onClick={this.handleReset} className="btn btn-primary m-2">
+          Reset
+        </button>
         {this.state.products.map((product) => (
           <Product
-            onQuantity={this.state.products.quantity}
-            onId={this.state.products.id}
+            key={product.id}
+            onQuantity={product.quantity}
+            id={product.id}
+            onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         ))}
       </>
