@@ -8,7 +8,9 @@ class Navbar extends Component {
           <div className="container-fluid">
             <span className="navbar-brand mb-0 h1">
               Navbar
-              <span className="badge rounded-pill bg-secondary ms-2">hej</span>
+              <span className="badge rounded-pill bg-secondary ms-2">
+                {this.props.productCount}
+              </span>
             </span>
           </div>
         </nav>

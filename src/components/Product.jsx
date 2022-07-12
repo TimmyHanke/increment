@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 class Product extends Component {
   formatQuantity() {
-    const quantity = this.props.onQuantity;
+    const quantity = this.props.product.quantity;
     return quantity === 0 ? "Zero" : quantity;
   }
   getBadgeClasses() {
     let classes = "badge me-2 ";
     classes +=
-      this.props.onQuantity === 0 ? "bg-warning text-dark" : "bg-primary";
+      this.props.product.quantity === 0 ? "bg-warning text-dark" : "bg-primary";
     return classes;
   }
 
@@ -20,7 +20,7 @@ class Product extends Component {
         <span className="m-2">
           <button
             className="btn btn-secondary"
-            onClick={() => this.props.onIncrement(this.props.onProduct)}
+            onClick={() => this.props.onIncrement(this.props.product)}
           >
             +
           </button>
@@ -28,7 +28,7 @@ class Product extends Component {
         <span>
           <button
             className="btn btn-secondary"
-            onClick={() => this.props.onDecrement(this.props.onProduct)}
+            onClick={() => this.props.onDecrement(this.props.product)}
           >
             -
           </button>
@@ -36,7 +36,7 @@ class Product extends Component {
         <span className="m-2">
           <button
             className="btn btn-danger"
-            onClick={() => this.props.onDelete(this.props.id)}
+            onClick={() => this.props.onDelete(this.props.product.id)}
           >
             X
           </button>
