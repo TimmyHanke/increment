@@ -38,19 +38,19 @@ class app extends Component {
     this.setState({ products });
   };
   render() {
+    const { products } = this.state;
     return (
       <>
-        <Navbar productCount={this.state.products.length} />
-        <div className="container mt-4">
-          <Products
-            products={this.state.products}
-            onReset={this.handleReset}
-            onDelete={this.handleDelete}
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-            productQuantity={this.state.products.quantity}
-          />
-        </div>
+        <Navbar productCount={products.length} />
+
+        <Products
+          products={this.state.products}
+          onReset={this.handleReset}
+          onDelete={this.handleDelete}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+          productQuantity={this.state.products.quantity}
+        />
       </>
     );
   }

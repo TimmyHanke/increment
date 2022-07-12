@@ -13,6 +13,7 @@ class Product extends Component {
   }
 
   render() {
+    const { onIncrement, onDelete, onDecrement, product } = this.props;
     return (
       <div className="m-2">
         <span className={this.getBadgeClasses()}>{this.formatQuantity()}</span>
@@ -20,7 +21,7 @@ class Product extends Component {
         <span className="m-2">
           <button
             className="btn btn-secondary"
-            onClick={() => this.props.onIncrement(this.props.product)}
+            onClick={() => onIncrement(product)}
           >
             +
           </button>
@@ -28,7 +29,7 @@ class Product extends Component {
         <span>
           <button
             className="btn btn-secondary"
-            onClick={() => this.props.onDecrement(this.props.product)}
+            onClick={() => onDecrement(product)}
           >
             -
           </button>
