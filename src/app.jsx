@@ -41,7 +41,7 @@ class app extends Component {
     const { products } = this.state;
     return (
       <>
-        <Navbar productCount={products.length} />
+        <Navbar productCount={products.filter((p) => p.quantity > 0).length} />
 
         <Products
           products={this.state.products}
